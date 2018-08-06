@@ -169,6 +169,7 @@ MuonIDFlags = cms.PSet(
                         " innerTrack.hitPattern.numberOfValidPixelHits > 0 && " + 
                         " abs(track.ptError / pt) < 0.10 )"),
     MuIDForOutsideInTk = cms.string("isStandAloneMuon && outerTrack.pt > 10 && outerTrack.hitPattern.muonStationsWithValidHits() >= 2"),
+	 TightId = cms.string("isGlobalMuon && isPFMuon && globalTrack.normalizedChi2 < 10.0 && globalTrack.hitPattern.numberOfValidMuonHits > 0 && numberOfMatchedStations > 1 && abs(dB) < 0.2 && track.hitPattern.numberOfValidPixelHits > 0 && track.hitPattern.trackerLayersWithMeasurement > 5"),## fabs(recoMu.muonBestTrack()->dz(vertex->position())) < 0.5 is not applied..
 )
 
 HighPtTriggerFlags = cms.PSet(
@@ -266,6 +267,10 @@ HighPtTriggerFlags = cms.PSet(
    DoubleMu30TkMu11_Mu30leg = cms.string("!triggerObjectMatchesByFilter('hltL3fL1sMu16orMu25L1f0L2f25L3Filtered30').empty()"),
    DoubleMu30TkMu11_TkMu11leg = cms.string("!triggerObjectMatchesByFilter('hltDiMuonGlbFiltered30TrkFiltered11').empty()"),
 
+	# For Drell-Yan
+	PAL1DoubleMu0             = cms.string("!triggerObjectMatchesByPath('HLT_PAL1DoubleMu0_v*',1,0).empty()"),	   
+	hltL1fL1sDoubleMu0BptxANDL1Filtered0 = cms.string("!triggerObjectMatchesByFilter('hltL1fL1sDoubleMu0BptxANDL1Filtered0').empty()"),
+
 )
 HighPtTriggerFlagsDebug = cms.PSet(
    # --- the ones commented out don't save tags ---
@@ -331,7 +336,7 @@ HighPtTriggerFlagsDebug = cms.PSet(
                               
    #matching to muon leg of HLT_Mu23_TrkIsoVVL_Ele8_CaloIdL_TrackIdL_IsoVL_v*
    Mu23_TrkIsoVVL = cms.string("!triggerObjectMatchesByFilter('hltMu23TrkIsoVVLEle8CaloIdLTrackIdLIsoVLMuonlegL3IsoFiltered23').empty()"),
-   
+
 )
 
 
@@ -368,6 +373,8 @@ LowPtTriggerFlagsPhysics = cms.PSet(
                                " triggerObjectMatchesByCollection('hltL3MuonCandidates').at(0).hasFilterLabel('hltDisplacedmumuFilterDimuon20Jpsi')"),
     Dimuon10_Jpsi_Barrel = cms.string("!triggerObjectMatchesByCollection('hltL3MuonCandidates').empty() && "+
                                       " triggerObjectMatchesByCollection('hltL3MuonCandidates').at(0).hasFilterLabel('hltDisplacedmumuFilterDimuon10JpsiBarrel')"),
+
+
 )
 
 LowPtTriggerFlagsEfficienciesTag = cms.PSet(
@@ -412,6 +419,7 @@ LowPtTriggerFlagsEfficienciesTag = cms.PSet(
    Mu16TkMu0Onia_L3_MU = cms.string(   "!triggerObjectMatchesByCollection('hltL3MuonCandidates').empty() && " + 
                                        " triggerObjectMatchesByCollection('hltL3MuonCandidates').at(0).hasFilterLabel('hltL3fL1sMu16orMu20erorMu16L1f0L2f0L3Filtered16')"
                                        ),
+
 
 )
 
@@ -464,6 +472,7 @@ LowPtTriggerFlagsEfficienciesProbe = cms.PSet(
    Mu16TkMu0Onia_L3 = cms.string(      "!triggerObjectMatchesByCollection('hltL3MuonCandidates').empty() && "+
                                        " triggerObjectMatchesByCollection('hltL3MuonCandidates').at(0).hasFilterLabel('hltL3fL1sMu16orMu20erorMu16L1f0L2f0L3Filtered16')"
                                         ),
+
 
 )
 
