@@ -63,31 +63,26 @@ elif "CMSSW_7_6_" in os.environ['CMSSW_VERSION']:
             '/store/data/Run2015D/SingleMuon/AOD/16Dec2015-v1/10000/24537A2D-0BA8-E511-8D7C-20CF300E9ECF.root',
     ]
 elif "CMSSW_8_0_"in os.environ['CMSSW_VERSION']:
-    process.GlobalTag.globaltag = cms.string('80X_mcRun2_pA_v4')
+    process.GlobalTag.globaltag = cms.string('80X_dataRun2_Prompt_v9')
 
     process.source.fileNames = [
-###         '/store/user/anstahll/EWQAnalysis2017/MC/Embedded/Embedded_PileUp_Pyquen_DYtoMuMu_M_30_TuneZ2_8TeV16_pythia6_RECO_20170613/DYtoMuMu/Embedded_PileUp_Pyquen_DYtoMuMu_M_30_TuneZ2_8TeV16_pythia6_RECO_20170613/170613_105031/0000/step3_Embedded_PileUp_Pyquen_DYtoMuMu_M_30_TuneZ2_8TeV16_pythia6_RECO_20170613_87.root',
-			 'root://xrootd-cms.infn.it//store/himc/pPb816Summer16DR/Psi1SToMuMu_pTMu-2p5_PbP-Bst_8p16-Pythia8/AODSIM/PbPBst_80X_mcRun2_pA_v4-v1/90000/FE0CECDB-CA19-E711-9554-1866DAEA8038.root', 
-			 'root://xrootd-cms.infn.it//store/himc/pPb816Summer16DR/Psi1SToMuMu_pTMu-2p5_PbP-Bst_8p16-Pythia8/AODSIM/PbPBst_80X_mcRun2_pA_v4-v1/90000/FAF52A30-C619-E711-A015-1866DAEB528C.root', 
-			 'root://xrootd-cms.infn.it//store/himc/pPb816Summer16DR/Psi1SToMuMu_pTMu-2p5_PbP-Bst_8p16-Pythia8/AODSIM/PbPBst_80X_mcRun2_pA_v4-v1/90000/FAA79C38-1319-E711-9558-A0369FC5D8F0.root', 
-			 'root://xrootd-cms.infn.it//store/himc/pPb816Summer16DR/Psi1SToMuMu_pTMu-2p5_PbP-Bst_8p16-Pythia8/AODSIM/PbPBst_80X_mcRun2_pA_v4-v1/90000/FA568C2A-3C19-E711-85FF-FA163E2B1AEA.root', 
-			 'root://xrootd-cms.infn.it//store/himc/pPb816Summer16DR/Psi1SToMuMu_pTMu-2p5_PbP-Bst_8p16-Pythia8/AODSIM/PbPBst_80X_mcRun2_pA_v4-v1/90000/FA561C2B-C919-E711-B4BD-A0369F7FC934.root', 
-
-
-
-
-#         '/store/hidata/PARun2016C/PASingleMuon/AOD/PromptReco-v1/000/285/480/00000/AAF1FE3C-09AF-E611-B0B7-02163E014168.root',
-#         '/store/hidata/PARun2016C/PASingleMuon/AOD/PromptReco-v1/000/285/480/00000/D4037D8C-09AF-E611-9C59-02163E0135E5.root',
-#         '/store/hidata/PARun2016C/PASingleMuon/AOD/PromptReco-v1/000/285/505/00000/006636FE-7CAF-E611-9AB7-FA163E2D272A.root',
-#        '/store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/04C4B374-B044-E611-97D0-02163E011ECD.root',
-#        '/store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/06056373-B044-E611-B41D-02163E0137AA.root',
-#        '/store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/064D926A-B044-E611-9CAA-02163E011FCC.root',
+#        'root://xrootd-cms.infn.it//store/hidata/PARun2016C/PADoubleMuon/AOD/PromptReco-v1/000/285/419/00000/D0EE31A6-5EAE-E611-938A-FA163E84683B.root',
+	     'root://xrootd-cms.infn.it//store/hidata/PARun2016C/PADoubleMuon/AOD/PromptReco-v1/000/286/010/00000/062C6E19-6AB7-E611-8D64-02163E013793.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/007E4250-AE44-E611-867E-02163E011AB6.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/00997A4B-B044-E611-9FBB-02163E011EDE.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/02BB51AA-B044-E611-8DB0-02163E014168.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/0466BA91-AE44-E611-825B-02163E0136EF.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/0485506E-AE44-E611-A24B-02163E0140ED.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/0494A580-B044-E611-993A-02163E012944.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/04C4B374-B044-E611-97D0-02163E011ECD.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/06056373-B044-E611-B41D-02163E0137AA.root',
+#        'root://xrootd-cms.infn.it//store/data/Run2016C/SingleMuon/AOD/PromptReco-v2/000/276/283/00000/064D926A-B044-E611-9CAA-02163E011FCC.root',
         ]
  
 else: raise RuntimeError, "Unknown CMSSW version %s" % os.environ['CMSSW_VERSION']
 
 ## SELECT WHAT DATASET YOU'RE RUNNING ON
-###TRIGGER="SingleMu"
+#TRIGGER="SingleMu"
 TRIGGER="DoubleMu"
 
 #from HeavyIonsAnalysis.Configuration.collisionEventSelection_cff import *
@@ -116,10 +111,10 @@ if TRIGGER == "SingleMu":
     #                                                              'HLT_IsoMu27_v*',   'HLT_IsoMu24_v*',   'HLT_IsoMu22_v*',   'HLT_IsoMu20_v*',
     #                                                              'HLT_IsoTkMu27_v*', 'HLT_IsoTkMu24_v*', 'HLT_IsoTkMu22_v*', 'HLT_IsoTkMu20_v*'  )
 elif TRIGGER == "DoubleMu":
-#    process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_Mu8_v*', 'HLT_Mu17_v*',
-#                                                                  'HLT_Mu8_TrkIsoVVL_v*', 'HLT_Mu17_TrkIsoVVL_v*',
-#                                                                  'HLT_Mu17_TkMu8_v*', 'HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v*' )
-	  process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_PAL1DoubleMu0_v*' )
+###    process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_Mu8_v*', 'HLT_Mu17_v*',
+###                                                                  'HLT_Mu8_TrkIsoVVL_v*', 'HLT_Mu17_TrkIsoVVL_v*',
+###                                                                  'HLT_Mu17_TkMu8_v*', 'HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v*' )
+	process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_PAL1DoubleMu0_v*' )
 else:
     raise RuntimeError, "TRIGGER must be 'SingleMu' or 'DoubleMu'"
 
@@ -132,8 +127,6 @@ process.triggerResultsFilter.hltResults = cms.InputTag("TriggerResults","","HLT"
 #    triggerConditions = cms.vstring( 'HLT_Mu40_v*', 'HLT_Mu5_v*', 'HLT_Mu12_v*', 'HLT_Mu24_v*')
 #)
 
-###process.fastFilter     = cms.Sequence(process.collisionEventSelection + process.triggerResultsFilter)
-
 process.fastFilter     = cms.Sequence(process.collisionEventSelectionPA + process.triggerResultsFilter)
 #process.fastFilter     = cms.Sequence(process.goodVertexFilter + process.noScraping + process.triggerResultsFilter)
 #process.fastFilterFake = cms.Sequence(process.goodVertexFilter + process.noScraping + process.triggerResultsFilterFake)
@@ -145,6 +138,8 @@ process.fastFilter     = cms.Sequence(process.collisionEventSelectionPA + proces
 ##   |_|  |_|\__,_|\___/|_| |_|___/
 ##                                 
 ## ==== Merge CaloMuons and Tracks into the collection of reco::Muons  ====
+
+### check InAcceptance = '((abs(eta)<1.2 && pt>=3.5) || (1.2<=abs(eta) && abs(eta)<2.1 && pt>=5.77-1.89*abs(eta)) || (2.1<=abs(eta) && abs(eta)<2.4 && pt>=1.8))'
 from RecoMuon.MuonIdentification.calomuons_cfi import calomuons;
 process.mergedMuons = cms.EDProducer("CaloMuonMerger",
     mergeTracks = cms.bool(True),
@@ -157,6 +152,10 @@ process.mergedMuons = cms.EDProducer("CaloMuonMerger",
     muonsCut     = cms.string("pt > 3 && track.isNonnull"),
     caloMuonsCut = cms.string("pt > 3"),
     tracksCut    = cms.string("pt > 3"),
+    ###muonsCut     = cms.string(InAcceptance),
+    ###caloMuonsCut = cms.string(InAcceptance),
+    ###tracksCut    = cms.string(InAcceptance),
+	 
 )
 
 ## ==== Trigger matching
@@ -165,6 +164,16 @@ process.load("MuonAnalysis.MuonAssociators.patMuonsWithTrigger_cff")
 process.muonMatchHLTL2.maxDeltaR = 0.3 # Zoltan tuning - it was 0.5
 process.muonMatchHLTL3.maxDeltaR = 0.1
 from MuonAnalysis.MuonAssociators.patMuonsWithTrigger_cff import *
+### added from PbPb J/psi
+#process.muonL1Info.maxDeltaR = 0.3
+#process.muonL1Info.fallbackToME1 = True
+#process.muonMatchHLTL1.maxDeltaR = 0.3
+#process.muonMatchHLTL1.fallbackToME1 = True
+#process.muonMatchHLTL2.maxDeltaR = 0.3
+#process.muonMatchHLTL2.maxDPtRel = 10.0
+#process.muonMatchHLTL3.maxDeltaR = 0.1
+#process.muonMatchHLTL3.maxDPtRel = 10.0
+
 changeRecoMuonInput(process, "mergedMuons")
 useL1Stage2Candidates(process)
 appendL1MatchingAlgo(process)
@@ -193,10 +202,11 @@ if TRIGGER == "DoubleMu":
 #    process.tagMuons.cut = ("pt > 6 && (isGlobalMuon || isTrackerMuon) && isPFMuon "+
 #                            " && !triggerObjectMatchesByCollection('hltL3MuonCandidates').empty()"+
 #                            " && pfIsolationR04().sumChargedHadronPt/pt < 0.2")
-      process.tagMuons.cut = ("pt > 6 && "+MuonIDFlags.TightId.value()+
-                      " && !triggerObjectMatchesByCollection('hltL3MuonCandidates').empty()"+
-                    #  " && pfIsolationR03()"+
-                      " && (pfIsolationR04().sumChargedHadronPt + pfIsolationR04().sumNeutralHadronEt + pfIsolationR04().sumPhotonEt)/pt < 0.15")
+     process.tagMuons.cut = ("pt > 6 && "+MuonIDFlags.TightId.value()+
+                     " && !triggerObjectMatchesByCollection('hltL3MuonCandidates').empty()"+
+                   #  " && pfIsolationR03()"+
+                     " && (pfIsolationR04().sumChargedHadronPt + pfIsolationR04().sumNeutralHadronEt + pfIsolationR04().sumPhotonEt)/pt < 0.15")
+
 process.oneTag  = cms.EDFilter("CandViewCountFilter", src = cms.InputTag("tagMuons"), minNumber = cms.uint32(1))
 
 process.probeMuons = cms.EDFilter("PATMuonSelector",
@@ -613,7 +623,7 @@ process.muonDxyPVdzMinTrk = cms.EDProducer("MuonDxyPVdzmin",
 
 process.tpPairsTrk = cms.EDProducer("CandViewShallowCloneCombiner",
 ###    cut = cms.string('30 < mass '),
-    cut = cms.string('2.5 < mass < 3.5'),
+	 cut = cms.string('2.5 < mass < 3.5'),
     decay = cms.string('tagMuons@+ probeMuonsTrk@-')
     )
 
@@ -767,4 +777,4 @@ process.RandomNumberGeneratorService.tkTracksNoZ0 = cms.PSet( initialSeed = cms.
 #       process.fakeRateZPlusProbe,
 #    ])
 
-process.TFileService = cms.Service("TFileService", fileName = cms.string("tnpZ_MC.root"))
+process.TFileService = cms.Service("TFileService", fileName = cms.string("tnpZ_Data.root"))
