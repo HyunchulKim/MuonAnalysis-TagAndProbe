@@ -115,6 +115,8 @@ elif TRIGGER == "DoubleMu":
 ###                                                                  'HLT_Mu8_TrkIsoVVL_v*', 'HLT_Mu17_TrkIsoVVL_v*',
 ###                                                                  'HLT_Mu17_TkMu8_v*', 'HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v*' )
 	process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_PAL1DoubleMu0_v*' )
+###   process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_PAL1DoubleMuOpen', 'HLT_PAL2DoubleMu0', 'HLT_PAL3DoubleMu0', 'HLT_PAL3DoubleMu0_HIon', 'HLT_PAL1DoubleMu0', 'HLT_PAL1DoubleMu0_HighQ', 'HLT_PAL1DoubleMu0_MGT1', 'HLT_PAL1DoubleMuOpen_OS', 'HLT_PAL1DoubleMuOpen_SS', 'HLT_PAL1DoubleMu10', 'HLT_PAL2DoubleMu10', 'HLT_PAL3DoubleMu10', 'HLT_PAL3Mu3', 'HLT_PAL3Mu5', 'HLT_PAL3Mu7', 'HLT_PAL2Mu12', 'HLT_PAL3Mu12', 'HLT_PAL2Mu15', 'HLT_PAL3Mu15' )
+
 else:
     raise RuntimeError, "TRIGGER must be 'SingleMu' or 'DoubleMu'"
 
@@ -165,14 +167,14 @@ process.muonMatchHLTL2.maxDeltaR = 0.3 # Zoltan tuning - it was 0.5
 process.muonMatchHLTL3.maxDeltaR = 0.1
 from MuonAnalysis.MuonAssociators.patMuonsWithTrigger_cff import *
 ### added from PbPb J/psi
-#process.muonL1Info.maxDeltaR = 0.3
-#process.muonL1Info.fallbackToME1 = True
-#process.muonMatchHLTL1.maxDeltaR = 0.3
-#process.muonMatchHLTL1.fallbackToME1 = True
-#process.muonMatchHLTL2.maxDeltaR = 0.3
-#process.muonMatchHLTL2.maxDPtRel = 10.0
-#process.muonMatchHLTL3.maxDeltaR = 0.1
-#process.muonMatchHLTL3.maxDPtRel = 10.0
+process.muonL1Info.maxDeltaR = 0.3
+process.muonL1Info.fallbackToME1 = True
+process.muonMatchHLTL1.maxDeltaR = 0.3
+process.muonMatchHLTL1.fallbackToME1 = True
+process.muonMatchHLTL2.maxDeltaR = 0.3
+process.muonMatchHLTL2.maxDPtRel = 10.0
+process.muonMatchHLTL3.maxDeltaR = 0.1
+process.muonMatchHLTL3.maxDPtRel = 10.0
 
 changeRecoMuonInput(process, "mergedMuons")
 useL1Stage2Candidates(process)
@@ -189,10 +191,11 @@ process.centralityInfo.CentralitySrc = cms.InputTag("pACentrality")
 TRACK_CUTS = "track.isNonnull && track.hitPattern.trackerLayersWithMeasurement > 5 && track.hitPattern.numberOfValidPixelHits > 0"
 process.tagMuons = cms.EDFilter("PATMuonSelector",
     src = cms.InputTag("patMuonsWithTrigger"),
-    cut = cms.string("pt > 15 && "+MuonIDFlags.TightId.value()+
+    cut = cms.string("pt > 7 && "+MuonIDFlags.TightId.value()+
                      " && !triggerObjectMatchesByCollection('hltL3MuonCandidates').empty()"+
                    #  " && pfIsolationR03()"+
-                     " && (pfIsolationR03().sumChargedHadronPt + pfIsolationR03().sumNeutralHadronEt + pfIsolationR03().sumPhotonEt)/pt < 0.15"),
+###                     " && (pfIsolationR03().sumChargedHadronPt + pfIsolationR03().sumNeutralHadronEt + pfIsolationR03().sumPhotonEt)/pt < 0.15"),
+								" && isolationR03.sumPt/pt < 0.3"),
 )
 process.pseudoTag = cms.EDFilter("MuonSelector",
     src = cms.InputTag("muons"),
@@ -202,10 +205,11 @@ if TRIGGER == "DoubleMu":
 #    process.tagMuons.cut = ("pt > 6 && (isGlobalMuon || isTrackerMuon) && isPFMuon "+
 #                            " && !triggerObjectMatchesByCollection('hltL3MuonCandidates').empty()"+
 #                            " && pfIsolationR04().sumChargedHadronPt/pt < 0.2")
-     process.tagMuons.cut = ("pt > 6 && "+MuonIDFlags.TightId.value()+
+     process.tagMuons.cut = ("pt > 7 && "+MuonIDFlags.TightId.value()+
                      " && !triggerObjectMatchesByCollection('hltL3MuonCandidates').empty()"+
                    #  " && pfIsolationR03()"+
-                     " && (pfIsolationR04().sumChargedHadronPt + pfIsolationR04().sumNeutralHadronEt + pfIsolationR04().sumPhotonEt)/pt < 0.15")
+###                     " && (pfIsolationR04().sumChargedHadronPt + pfIsolationR04().sumNeutralHadronEt + pfIsolationR04().sumPhotonEt)/pt < 0.15")
+							" && isolationR03.sumPt/pt < 0.3")
 
 process.oneTag  = cms.EDFilter("CandViewCountFilter", src = cms.InputTag("tagMuons"), minNumber = cms.uint32(1))
 
